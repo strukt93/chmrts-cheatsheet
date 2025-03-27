@@ -104,6 +104,20 @@ nmap -sS -Pn IP1,IP2,IP3
 ```
 - Use `pacu` for advanced enumeration (an other activities) with credentials. Specifically the `iam__privesc_scan` script.
 
+### S3 bucket enumeration
+- List all S3 buckets
+```
+aws s3 ls --profile PROFILE
+```
+- List a specific S3 bucket's content
+```
+aws s3 ls BUCKETNAME
+```
+- Download an object from an S3 bucket
+```
+aws s3 copy s3://BUCKETNAME/OBJECTNAME /PATH/TO/LOCAL/COPY
+```
+
 ### Privilege escalation via lambda functions
 - If the compromised account has access to create lambda functions and `iam:PassRole` privileges then a lambda function with high privileges can be created
 - Store the following code in a file and name it `lambda_function.py`
