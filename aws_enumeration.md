@@ -81,7 +81,7 @@ aws iam list-policy-versions --policy-arn POLICYARN
 ```
 aws iam get-policy-version --policy-arn POLICYARN --version-id VERSIONID
 ```
-- Get a specific user/group/role's inline policy document
+- Get a specific user/group/role's inline policy document (use the last one with federated users)
 ```
 aws iam get-user-policy --user-name USERNAME --policy-name POLICYNAME
 aws iam get-group-policy --group-name GROUPNAME --policy-name POLICYNAME
