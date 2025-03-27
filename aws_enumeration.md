@@ -53,12 +53,12 @@ aws iam list-group-policies --group-name GROUPNAME
 ```
 aws iam list-roles
 ```
-- List a specific role's attached managed IAM policies
+- List a specific role's attached managed IAM policies (useful when a federated user is compromised) 
 ```
 aws iam list-attached-role-policies --role-name ROLENAME
 ```
 
-- List a specific role's inline managed IAM policies
+- List a specific role's inline managed IAM policies (useful when a federated user is compromised) 
 ```
 aws iam list-role-policies --role-name ROLENAME
 ```
@@ -86,4 +86,9 @@ aws iam get-policy-version --policy-arn POLICYARN --version-id VERSIONID
 aws iam get-user-policy --user-name USERNAME --policy-name POLICYNAME
 aws iam get-group-policy --group-name GROUPNAME --policy-name POLICYNAME
 aws iam get-role-policy --role-name ROLENAME --policy-name POLICYNAME
+```
+### Enumeration for initial foothold
+- Use cloud_enum to enumerate the organization
+```
+./cloud_enum.py -k ORGNAME
 ```
