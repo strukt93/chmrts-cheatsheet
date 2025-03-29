@@ -165,3 +165,5 @@ aws sts get-caller-identity
 ```
 aws sts assume-role --role-arn FOUNDROLEARN --role-session-name SOMENAME
 ```
+### More resources
+- https://rhinosecuritylabs.com/aws/aws-privilege-escalation-methods-mitigation/
