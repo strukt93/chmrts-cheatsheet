@@ -61,15 +61,39 @@ gcloud iam roles list --project PROJECTID
 ```
 gcloud iam roles describe ROLENAME --project PROJECTID
 ```
+- Get a specific account's permissions
+```
+gcloud projects get-iam-policy project-staging-344908 --flatten="bindings[].members" --format='table(bindings.role)' --filter="bindings.members:EMAIL"
+```
 
 ### Computer instance enumeration
 - List compute instances
 ```
 gcloud compute instances list
 ```
+- Get a specific compute instance's description
+```
+gcloud compute instances describe INSTANCE
+```
 - Get current account's policy on a given compute instance
 ```
-gcloud compute instances get-iam-policy --zone ZONE
+gcloud compute instances get-iam-policy INSTANCE --zone ZONE
+```
+- List firewall rules
+```
+gcloud compute firewall-rules list
+```
+- Get a specific firewall rule description
+```
+gcloud compute firewall-rules describe RULENAME
+```
+- List forwarding rules
+```
+gcloud compute forwarding-rules list
+```
+- List GKE clusters
+```
+gcloud container clusters list
 ```
 
 ### Storage and bucket enumeration
