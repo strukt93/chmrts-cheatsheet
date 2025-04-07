@@ -63,7 +63,7 @@ gcloud iam roles describe ROLENAME --project PROJECTID
 ```
 - Get a specific account's permissions
 ```
-gcloud projects get-iam-policy project-staging-344908 --flatten="bindings[].members" --format='table(bindings.role)' --filter="bindings.members:EMAIL"
+gcloud projects get-iam-policy PROJECT --flatten="bindings[].members" --format='table(bindings.role)' --filter="bindings.members:EMAIL"
 ```
 
 ### Computer instance enumeration
