@@ -108,6 +108,16 @@ aws rds describe-db-instances --region REGION
 aws ec2 describe-security-groups --group-ids SGID --region REGION
 ```
 
+### Secret manager enumeration
+- List secrets:
+```
+aws secretsmanager list-secrets
+```
+- Get a specific secret:
+```
+aws secretsmanager get-secret-value --secret-id SECRETID
+```
+
 ### Enumeration for initial foothold
 - Use cloud_enum to enumerate the organization
 ```
