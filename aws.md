@@ -97,6 +97,17 @@ aws ec2 describe-instances --region REGION
 ```
 nmap -sS -Pn IP1,IP2,IP3
 ```
+
+### RDS enumeration
+- List DB instances:
+```
+aws rds describe-db-instances --region REGION
+```
+- Get a DB's security group info:
+```
+aws ec2 describe-security-groups --group-ids SGID --region REGION
+```
+
 ### Enumeration for initial foothold
 - Use cloud_enum to enumerate the organization
 ```
