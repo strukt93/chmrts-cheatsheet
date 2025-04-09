@@ -9,6 +9,10 @@ az login
 ```
 az account list
 ```
+- Show account info
+```
+az account show
+```
 - Set an account as default
 ```
 az account set --subscription ID
@@ -122,6 +126,10 @@ az role assignment list --assignee OBJECTID --all
 ```
 az role definition list -n ROLENAME
 ```
+- Get all custom role definitions
+```
+az role definition list --custom-role-only
+```
 - List resources
 ```
 az resource list
@@ -129,6 +137,10 @@ az resource list
 - List automation accounts
 ```
 az automation account list
+```
+- List resource groups
+```
+az group list
 ```
 
 ### Enumeration with MicroBurst
