@@ -25,6 +25,10 @@ az logout
 ```
 Connect-AzureAD
 ```
+- Switch between tenant subscriptions
+```
+Set-AzContext
+```
 - Get current Azure AD account (PS)
 ```
 $res=Get-AzureADCurrentSessionInfo
