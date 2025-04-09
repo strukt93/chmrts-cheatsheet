@@ -1,0 +1,232 @@
+PS C:\Users\strukt> az login --service-principal -u 18a37ae7-2a71-42fc-8928-7378c75dbf98 -p 0ua8Q~TH2~OIF0I934E1R13vXCoiweXBF4eUJblg --tenant 68b40a4c-50f1-48f3-b7cb-916dd82418a7
+[
+    "cloudName": "AzureCloud",
+    "homeTenantId": "68b40a4c-50f1-48f3-b7cb-916dd82418a7",
+    "id": "484f280d-a210-4272-b85d-cdd1a66572ed",
+    "isDefault": true,
+    "managedByTenants": [],
+    "name": "Engineering-Subscription",
+    "state": "Enabled",
+    "tenantId": "68b40a4c-50f1-48f3-b7cb-916dd82418a7",
+    "user": {
+      "name": "18a37ae7-2a71-42fc-8928-7378c75dbf98",
+      "type": "servicePrincipal"
+    }
+  },
+  {
+    "homeTenantId": "68b40a4c-50f1-48f3-b7cb-916dd82418a7",
+    "id": "2ee836d0-7c16-4037-a974-3a19691573d4",
+    "isDefault": false,
+    "managedByTenants": [],
+    "name": "IT-Subscription",
+    "state": "Enabled",
+    "tenantId": "68b40a4c-50f1-48f3-b7cb-916dd82418a7",
+    "user": {
+      "name": "18a37ae7-2a71-42fc-8928-7378c75dbf98",
+      "type": "servicePrincipal"
+    }
+  }
+]
+PS C:\Users\strukt> az account show
+{
+  "environmentName": "AzureCloud",
+  "homeTenantId": "68b40a4c-50f1-48f3-b7cb-916dd82418a7",
+  "id": "484f280d-a210-4272-b85d-cdd1a66572ed",
+  "isDefault": true,
+  "managedByTenants": [],
+  "name": "Engineering-Subscription",
+  "state": "Enabled",
+  "tenantId": "68b40a4c-50f1-48f3-b7cb-916dd82418a7",
+  "user": {
+    "name": "18a37ae7-2a71-42fc-8928-7378c75dbf98",
+    "type": "servicePrincipal"
+  }
+}
+PS C:\Users\strukt> az role assignment list --assignee 18a37ae7-2a71-42fc-8928-7378c75dbf98 --all
+[
+  {
+    "condition": null,
+    "conditionVersion": null,
+    "createdBy": "e7b13ff3-3f32-4892-934e-0a04dee661a8",
+    "createdOn": "2024-04-30T08:22:49.342197+00:00",
+    "delegatedManagedIdentityResourceId": null,
+    "description": "",
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/providers/Microsoft.Authorization/roleAssignments/4c941493-1f45-8b88-cc8b-0859c6e66bf8",
+    "name": "4c941493-1f45-8b88-cc8b-0859c6e66bf8",
+    "principalId": "84c2110d-9efc-415f-9b88-6ffbc6b8bafa",
+    "principalName": "18a37ae7-2a71-42fc-8928-7378c75dbf98",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/providers/Microsoft.Authorization/roleDefinitions/c432dbfc-cd1f-2c33-9751-f1627ac8d73d",
+    "roleDefinitionName": "viewo-only-role",
+    "scope": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed",
+    "type": "Microsoft.Authorization/roleAssignments",
+    "updatedBy": "e7b13ff3-3f32-4892-934e-0a04dee661a8",
+    "updatedOn": "2024-04-30T08:22:49.342197+00:00"
+  }
+]
+PS C:\Users\strukt> az resource list
+[
+  {
+    "changedTime": "2022-04-14T08:49:45.824664+00:00",
+    "createdTime": "2022-04-14T08:39:45.446311+00:00",
+    "extendedLocation": null,
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_eastus",
+    "identity": null,
+    "kind": null,
+    "location": "eastus",
+    "managedBy": null,
+    "name": "NetworkWatcher_eastus",
+    "plan": null,
+    "properties": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "NetworkWatcherRG",
+    "sku": null,
+    "tags": null,
+    "type": "Microsoft.Network/networkWatchers"
+  },
+  {
+    "changedTime": "2024-04-30T08:32:49.839862+00:00",
+    "createdTime": "2024-04-30T08:22:39.391892+00:00",
+    "extendedLocation": null,
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/Engineering-RG/providers/Microsoft.Network/publicIPAddresses/eng-dev-vm-public-ip",
+    "identity": null,
+    "kind": null,
+    "location": "eastus",
+    "managedBy": null,
+    "name": "eng-dev-vm-public-ip",
+    "plan": null,
+    "properties": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "Engineering-RG",
+    "sku": {
+      "capacity": null,
+      "family": null,
+      "model": null,
+      "name": "Basic",
+      "size": null,
+      "tier": null
+    },
+    "tags": {},
+    "type": "Microsoft.Network/publicIPAddresses"
+  },
+  {
+    "changedTime": "2024-04-30T08:32:50.767626+00:00",
+    "createdTime": "2024-04-30T08:22:40.194884+00:00",
+    "extendedLocation": null,
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/Engineering-RG/providers/Microsoft.Network/virtualNetworks/engineering-vnet",
+    "identity": null,
+    "kind": null,
+    "location": "eastus",
+    "managedBy": null,
+    "name": "engineering-vnet",
+    "plan": null,
+    "properties": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "Engineering-RG",
+    "sku": null,
+    "tags": {},
+    "type": "Microsoft.Network/virtualNetworks"
+  },
+  {
+    "changedTime": "2024-04-30T08:32:42.812887+00:00",
+    "createdTime": "2024-04-30T08:22:40.233282+00:00",
+    "extendedLocation": null,
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/Engineering-RG/providers/Microsoft.KeyVault/vaults/meta-tech-dev-vault",
+    "identity": null,
+    "kind": null,
+    "location": "eastus",
+    "managedBy": null,
+    "name": "meta-tech-dev-vault",
+    "plan": null,
+    "properties": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "Engineering-RG",
+    "sku": null,
+    "tags": {},
+    "type": "Microsoft.KeyVault/vaults"
+  },
+  {
+    "changedTime": "2024-04-30T08:32:49.965528+00:00",
+    "createdTime": "2024-04-30T08:22:40.843124+00:00",
+    "extendedLocation": null,
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/Engineering-RG/providers/Microsoft.Network/networkSecurityGroups/eng-nsg-dev",
+    "identity": null,
+    "kind": null,
+    "location": "eastus",
+    "managedBy": null,
+    "name": "eng-nsg-dev",
+    "plan": null,
+    "properties": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "Engineering-RG",
+    "sku": null,
+    "tags": {},
+    "type": "Microsoft.Network/networkSecurityGroups"
+  },
+  {
+    "changedTime": "2024-04-30T08:33:56.896468+00:00",
+    "createdTime": "2024-04-30T08:23:47.814794+00:00",
+    "extendedLocation": null,
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/Engineering-RG/providers/Microsoft.Network/networkInterfaces/linux-vm-nic",
+    "identity": null,
+    "kind": null,
+    "location": "eastus",
+    "managedBy": null,
+    "name": "linux-vm-nic",
+    "plan": null,
+    "properties": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "Engineering-RG",
+    "sku": null,
+    "tags": {},
+    "type": "Microsoft.Network/networkInterfaces"
+  },
+  {
+    "changedTime": "2024-04-30T08:34:37.101550+00:00",
+    "createdTime": "2024-04-30T08:23:53.691204+00:00",
+    "extendedLocation": null,
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/Engineering-RG/providers/Microsoft.Compute/virtualMachines/eng-dev-vm",
+    "identity": {
+      "principalId": "81cf4383-9028-4c55-a25c-28261f0dcde1",
+      "tenantId": "68b40a4c-50f1-48f3-b7cb-916dd82418a7",
+      "type": "SystemAssigned",
+      "userAssignedIdentities": null
+    },
+    "kind": null,
+    "location": "eastus",
+    "managedBy": null,
+    "name": "eng-dev-vm",
+    "plan": null,
+    "properties": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "Engineering-RG",
+    "sku": null,
+    "tags": {},
+    "type": "Microsoft.Compute/virtualMachines"
+  },
+  {
+    "changedTime": "2024-04-30T08:33:59.114259+00:00",
+    "createdTime": "2024-04-30T08:23:59.004389+00:00",
+    "extendedLocation": null,
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/ENGINEERING-RG/providers/Microsoft.Compute/disks/eng-dev-vm_OsDisk_1_5b63ff33d401460585a28f516dce7111",
+    "identity": null,
+    "kind": null,
+    "location": "eastus",
+    "managedBy": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/Engineering-RG/providers/Microsoft.Compute/virtualMachines/eng-dev-vm",
+    "name": "eng-dev-vm_OsDisk_1_5b63ff33d401460585a28f516dce7111",
+    "plan": null,
+    "properties": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "ENGINEERING-RG",
+    "sku": {
+      "capacity": null,
+      "family": null,
+      "model": null,
+      "name": "Standard_LRS",
+      "size": null,
+      "tier": "Standard"
+    },
+    "tags": {},
+    "type": "Microsoft.Compute/disks"
+  }
+]

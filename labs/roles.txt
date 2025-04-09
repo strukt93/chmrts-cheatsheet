@@ -1,0 +1,363 @@
+PS C:\Users\strukt\Downloads\chmrts\labs> gcloud iam roles list --project sonic-airfoil-339910
+---
+description: Role that allowes pulling messages from pub/sub
+etag: BwX24h3Fee0=
+name: projects/sonic-airfoil-339910/roles/SentinelCustomRole
+stage: GA
+title: Sentinel Custom Role
+---
+etag: BwYXTBFLP-M=
+name: projects/sonic-airfoil-339910/roles/de4tz5cn
+stage: GA
+title: Project Owner
+---
+etag: BwYXcruA7L0=
+name: projects/sonic-airfoil-339910/roles/yic2b6wr
+stage: GA
+title: ViewerRole
+---
+etag: BwYXTBE6PhI=
+name: projects/sonic-airfoil-339910/roles/zklez1jh
+stage: GA
+title: Instance Metadata Owner
+PS C:\Users\strukt\Downloads\chmrts\labs> gcloud iam service-accounts list
+DISPLAY NAME                            EMAIL                                                                    DISABLED
+                                        dsa-service-account@sonic-airfoil-339910.iam.gserviceaccount.com         False
+App Engine default service account      sonic-airfoil-339910@appspot.gserviceaccount.com                         False
+                                        msa-service-account@sonic-airfoil-339910.iam.gserviceaccount.com         False
+                                        ssa-service-account@sonic-airfoil-339910.iam.gserviceaccount.com         False
+Compute Engine default service account  73345968844-compute@developer.gserviceaccount.com                        False
+ccsp-chmrts-lab-access-key              ccsp-chmrts-lab-access-key@sonic-airfoil-339910.iam.gserviceaccount.com  False
+                                        gke-service-account@sonic-airfoil-339910.iam.gserviceaccount.com         False
+tf-automation-chmrts-testing            tf-automation-chmrts@sonic-airfoil-339910.iam.gserviceaccount.com        False
+Sentinel Service Account                sentinel-service-account@sonic-airfoil-339910.iam.gserviceaccount.com    False
+                                        cpsa-service-account@sonic-airfoil-339910.iam.gserviceaccount.com        False
+PS C:\Users\strukt\Downloads\chmrts\labs> gcloud projects get-iam-policy sonic-airfoil-339910
+auditConfigs:
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: accessapproval.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: notebooks.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: alloydb.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: gkemulticloud.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: apigee.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: apigeeconnect.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: integrations.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: apigeeregistry.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: artifactregistry.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: baremetalsolution.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: batch.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: beyondcorp.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: analyticshub.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: bigquerydatapolicy.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: bigquerymigration.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: binaryauthorization.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: carestudio.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: privateca.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: certificatemanager.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: chronicleservicemanager.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: apigateway.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: cloudasset.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: automl.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: bigtable.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: cloudbilling.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: cloudbuild.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: composer.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: dlp.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: dataplex.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: dataproc.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: clouddeploy.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: discoveryengine.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: domains.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: cloudfunctions.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: healthcare.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: iap.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: ids.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: cloudiot.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: cloudkms.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: lifesciences.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: logging.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: ml.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: managedidentities.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: memcache.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: redis.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: osconfig.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: pubsub.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: cloudresourcemanager.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: retail.googleapis.com
+- auditLogConfigs:
+  - logType: ADMIN_READ
+  - logType: DATA_READ
+  - logType: DATA_WRITE
+  service: run.googleapis.com
+bindings:
+- members:
+  - serviceAccount:sentinel-service-account@sonic-airfoil-339910.iam.gserviceaccount.com
+  role: projects/sonic-airfoil-339910/roles/SentinelCustomRole
+- members:
+  - serviceAccount:cpsa-service-account@sonic-airfoil-339910.iam.gserviceaccount.com
+  - serviceAccount:ssa-service-account@sonic-airfoil-339910.iam.gserviceaccount.com
+  role: projects/sonic-airfoil-339910/roles/yic2b6wr
+- members:
+  - serviceAccount:service-73345968844@gcp-sa-artifactregistry.iam.gserviceaccount.com
+  role: roles/artifactregistry.serviceAgent
+- members:
+  - serviceAccount:73345968844@cloudbuild.gserviceaccount.com
+  role: roles/cloudbuild.builds.builder
+- members:
+  - serviceAccount:service-73345968844@gcp-sa-cloudbuild.iam.gserviceaccount.com
+  role: roles/cloudbuild.serviceAgent
+- members:
+  - serviceAccount:dsa-service-account@sonic-airfoil-339910.iam.gserviceaccount.com
+  role: roles/cloudfunctions.admin
+- members:
+  - serviceAccount:service-73345968844@gcf-admin-robot.iam.gserviceaccount.com
+  role: roles/cloudfunctions.serviceAgent
+- members:
+  - serviceAccount:service-73345968844@gcp-sa-cloudkms.iam.gserviceaccount.com
+  role: roles/cloudkms.serviceAgent
+- members:
+  - serviceAccount:service-73345968844@compute-system.iam.gserviceaccount.com
+  role: roles/compute.serviceAgent
+- members:
+  - serviceAccount:service-73345968844@gcp-sa-gkenode.iam.gserviceaccount.com
+  role: roles/container.nodeServiceAgent
+- members:
+  - serviceAccount:service-73345968844@container-engine-robot.iam.gserviceaccount.com
+  role: roles/container.serviceAgent
+- members:
+  - serviceAccount:service-73345968844@containerregistry.iam.gserviceaccount.com
+  role: roles/containerregistry.ServiceAgent
+- members:
+  - serviceAccount:73345968844-compute@developer.gserviceaccount.com
+  - serviceAccount:73345968844@cloudservices.gserviceaccount.com
+  - serviceAccount:sonic-airfoil-339910@appspot.gserviceaccount.com
+  role: roles/editor
+- members:
+  - serviceAccount:ccsp-chmrts-lab-access-key@sonic-airfoil-339910.iam.gserviceaccount.com
+  role: roles/iam.serviceAccountKeyAdmin
+- members:
+  - serviceAccount:tf-automation-chmrts@sonic-airfoil-339910.iam.gserviceaccount.com
+  - user:administrator@meta-tech.cloud
+  - user:gcp-adm@meta-tech.cloud
+  role: roles/owner
+- members:
+  - serviceAccount:p73345968844-921670@gcp-sa-logging.iam.gserviceaccount.com
+  role: roles/pubsub.publisher
+- members:
+  - serviceAccount:service-73345968844@gcp-sa-pubsub.iam.gserviceaccount.com
+  role: roles/pubsub.serviceAgent
+- members:
+  - serviceAccount:service-73345968844@serverless-robot-prod.iam.gserviceaccount.com
+  role: roles/run.serviceAgent
+etag: BwYmZHlon8I=
+version: 1
+PS C:\Users\strukt\Downloads\chmrts\labs> gcloud compute instances get-iam-policy tesing-instance --zone us-central1-b
+bindings:
+- members:
+  - serviceAccount:gke-service-account@sonic-airfoil-339910.iam.gserviceaccount.com
+  role: projects/sonic-airfoil-339910/roles/zklez1jh
+etag: BwYXTBdSMVU=
+version: 1
+PS C:\Users\strukt\Downloads\chmrts\labs> gcloud iam roles describe zklez1jh --project sonic-airfoil-339910
+etag: BwYXTBE6PhI=
+includedPermissions:
+- compute.instances.get
+- compute.instances.setMetadata
+name: projects/sonic-airfoil-339910/roles/zklez1jh
+stage: GA
+title: Instance Metadata Owner

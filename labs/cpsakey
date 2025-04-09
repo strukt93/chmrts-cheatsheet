@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sonic-airfoil-339910",
+  "private_key_id": "ab04d87349f92dff99ec32637125b4f71166f438",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCwXEk+WNFf0W5B\nKlUrhoJpsOWdKf5knYJw1a1XCDpHHM/j3qDdr0u0AcBXJb+ztPCbEdH4prtXSj/Y\nXF8hdHIxyi0D29EU4gZWNnTx6jYLTvYBZOBlT9ZDN5ghfLjsUJuAAF7Qnot2Zr9v\nZrgnvp8dSeLj2ooMCw5RGVQHnuddz8AkGJD1z6ijCO263hwMRT0KdJltzuodLrg6\nqALw2UqLh+k6JN2wJS1Fe+W+UtQNChR0LVPtgvOjmKtCKNJGDh/Zz56SRUgDFviT\ntvDNbVw8X4IqF4rE5V5MOgFrH1zkpedN/4KzWesOv71e4P3WB3cscuNIyWr2Wgse\n1vRWuNOPAgMBAAECggEAOLQbapvlCdFNCU/CnaF8ad4SHZOkcxY/m+bf+lUvY7Ds\nWKA6ibx0czaC8KI2/mFFYR58K93z6y940qh0f82wb7jI+24gTf4UOoD83dFHuiAT\nscQM8BYY1njYBaBT1steC+xSj/IB9jo3/+n/eOvtvd2FQWyBKTkey82AeojJbBw4\nj4t/2lSpCkdouOL0/uput1dr5yMo/uOiAY6kqfMLRsIAXXZy4Bz7CRqOgcwQiP+b\nvmltv+65U+UlQJcEhCfn7v0FyBNbwpF+dodudpS3G6/d64vcl9l2ZD509WlZ34yU\nRiBTxSts5jIhj4wOUn+ZbRVKAcJMSMQrfnqLuBzwcQKBgQDH6QPBppKTuiNjpCTv\nw7Tro8SlXgq2oe2FCQMajpJ9P3kj/0mnm4Kvh3xUnZyGU2DDsfFiPwYJftfzI6K6\nKffNPlTmb/SBMAI1aPS4uWRmOt4++EUvgTBr7FJOds9s8Zpy+0v/ZoN/VBSvzzP1\nQhyR+/3jkbuz1Dfb2zqOfQ1mcQKBgQDh18L2ZTEfWLlHugqqIa5vG8MXYNrZ/AP2\nsfL5qjV8mVphAZmMGgS+zLWy7zjLDgE94PaWwmN1hdYw5AQ4CRSzHwSxhhOF2I0a\n4iHvmLULdNGK4aod8HRRD/KR7be0mimUi8t0N5F0nu/9b+w8Gf1yqEsSOs6WiuVY\nQ/siXCrZ/wKBgBpdNZydXilTXAVxCVoBgmOtNmrkqx8I3e00kg83jEQuUciYi1sq\nXCLQCGqUWqcwacuFNSNS0nYAH3S2V2ibzk1oEgRN8X30GeZ3UAbolEATNWoyjdVF\nAWDKStSEQLjKaCcP0yb8mwz4xr2k4uJOdLwf8ozHlGyT6UX6dI+EGHdRAoGBAMhy\n8KAxAICKBykafwyyCFilk2rUlGqVvA7hsn7WC9MjaYxgFyC6lyuiFkNTAF15eLCr\nUzJMJmrQ92M9fmEd7jltdoT6M6nAor0RqH04VLhuXu2djZg1K4gnV20eSMcLbYxi\n55mnGHsh9nBDPrG5f7KcnMT5XRNRBG5rKCM/GumRAoGAUYUJGjKZhaHrR/GJlyUM\nlhy50M3B7eUlanNVlBoUFiEFENgSzFppeJWbwOK0RetpweeTGKvi2oCqw63HJO7M\n3YehYccuPWTuuci/38ldixjAdJbSw9jV+9yGqmjVxGETwS7rfuTf+JqxBaQfjQge\n9q1qJ1JqMk+mNGTLrIwTiFo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "cpsa-service-account@sonic-airfoil-339910.iam.gserviceaccount.com",
+  "client_id": "102630223024260648353",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cpsa-service-account%40sonic-airfoil-339910.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

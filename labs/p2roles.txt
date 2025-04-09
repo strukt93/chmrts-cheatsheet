@@ -1,0 +1,75 @@
+PS C:\Users\strukt\Downloads\chmrts\labs> gcloud iam roles list --project $p2
+---
+description: Role that allowes pulling messages from pub/sub
+etag: BwX24cPY3d4=
+name: projects/project-staging-344908/roles/SentinelCustomRole
+stage: GA
+title: Sentinel Custom Role
+PS C:\Users\strukt\Downloads\chmrts\labs> gcloud iam service-accounts list --project $p2
+DISPLAY NAME                            EMAIL                                                                        DISABLED
+Sentinel Service Account                sentinel-service-account@project-staging-344908.iam.gserviceaccount.com      False
+App Engine default service account      project-staging-344908@appspot.gserviceaccount.com                           False
+                                        stsa-service-account@project-staging-344908.iam.gserviceaccount.com          False
+Compute Engine default service account  1027834907986-compute@developer.gserviceaccount.com                          False
+tf-automation-chmrts-staging            tf-automation-chmrts-staging@project-staging-344908.iam.gserviceaccount.com  False
+                                        gcp-service-account-azure@project-staging-344908.iam.gserviceaccount.com     False
+PS C:\Users\strukt\Downloads\chmrts\labs> gcloud projects get-iam-policy $p2
+bindings:
+- members:
+  - serviceAccount:sentinel-service-account@project-staging-344908.iam.gserviceaccount.com
+  role: projects/project-staging-344908/roles/SentinelCustomRole
+- members:
+  - serviceAccount:1027834907986@cloudbuild.gserviceaccount.com
+  role: roles/cloudbuild.builds.builder
+- members:
+  - serviceAccount:service-1027834907986@gcp-sa-cloudbuild.iam.gserviceaccount.com
+  role: roles/cloudbuild.serviceAgent
+- members:
+  - serviceAccount:service-1027834907986@gcf-admin-robot.iam.gserviceaccount.com
+  role: roles/cloudfunctions.serviceAgent
+- members:
+  - serviceAccount:cpsa-service-account@sonic-airfoil-339910.iam.gserviceaccount.com
+  role: roles/compute.osAdminLogin
+- members:
+  - serviceAccount:service-1027834907986@compute-system.iam.gserviceaccount.com
+  role: roles/compute.serviceAgent
+- members:
+  - serviceAccount:service-1027834907986@container-engine-robot.iam.gserviceaccount.com
+  role: roles/container.serviceAgent
+- members:
+  - serviceAccount:service-1027834907986@containerregistry.iam.gserviceaccount.com
+  role: roles/containerregistry.ServiceAgent
+- members:
+  - serviceAccount:1027834907986-compute@developer.gserviceaccount.com
+  - serviceAccount:1027834907986@cloudservices.gserviceaccount.com
+  - serviceAccount:project-staging-344908@appspot.gserviceaccount.com
+  role: roles/editor
+- members:
+  - serviceAccount:cpsa-service-account@sonic-airfoil-339910.iam.gserviceaccount.com
+  role: roles/iam.serviceAccountUser
+- members:
+  - serviceAccount:service-1027834907986@gcp-sa-networkmanagement.iam.gserviceaccount.com
+  role: roles/networkmanagement.serviceAgent
+- members:
+  - serviceAccount:tf-automation-chmrts-staging@project-staging-344908.iam.gserviceaccount.com
+  - user:administrator@meta-tech.cloud
+  - user:gcp-adm@meta-tech.cloud
+  role: roles/owner
+- members:
+  - serviceAccount:p1027834907986-960297@gcp-sa-logging.iam.gserviceaccount.com
+  role: roles/pubsub.publisher
+- members:
+  - serviceAccount:service-1027834907986@gcp-sa-pubsub.iam.gserviceaccount.com
+  role: roles/pubsub.serviceAgent
+- condition:
+    description: Restrict Service Account Reader
+    expression: resource.type != 'storage.googleapis.com/Bucket'
+    title: restricted-service-account
+  members:
+  - serviceAccount:cpsa-service-account@sonic-airfoil-339910.iam.gserviceaccount.com
+  role: roles/reader
+- members:
+  - user:administrator@meta-tech.cloud
+  role: roles/storage.admin
+etag: BwYXTBHDXdQ=
+version: 3
