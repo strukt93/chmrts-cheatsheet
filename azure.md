@@ -146,6 +146,10 @@ az automation account list
 ```
 az group list
 ```
+- AD enumeration subcommands
+```
+az ad --help
+```
 
 ### Enumeration with MicroBurst
 - Enumerate public Azure blobs (PS)
