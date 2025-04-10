@@ -64,6 +64,64 @@ PS C:\Users\strukt> az role assignment list --assignee 18a37ae7-2a71-42fc-8928-7
     "updatedOn": "2024-04-30T08:22:49.342197+00:00"
   }
 ]
+
+PS C:\Users\strukt\Downloads\chmrts\chmrts-cheatsheet\labs> az role assignment list --assignee 18a37ae7-2a71-42fc-8928-7378c75dbf98 --all
+[
+  {
+    "condition": null,
+    "conditionVersion": null,
+    "createdBy": "e7b13ff3-3f32-4892-934e-0a04dee661a8",
+    "createdOn": "2024-04-30T08:22:49.342197+00:00",
+    "delegatedManagedIdentityResourceId": null,
+    "description": "",
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/providers/Microsoft.Authorization/roleAssignments/4c941493-1f45-8b88-cc8b-0859c6e66bf8",
+    "name": "4c941493-1f45-8b88-cc8b-0859c6e66bf8",
+    "principalId": "84c2110d-9efc-415f-9b88-6ffbc6b8bafa",
+    "principalName": "18a37ae7-2a71-42fc-8928-7378c75dbf98",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/providers/Microsoft.Authorization/roleDefinitions/c432dbfc-cd1f-2c33-9751-f1627ac8d73d",
+    "roleDefinitionName": "viewo-only-role",
+    "scope": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed",
+    "type": "Microsoft.Authorization/roleAssignments",
+    "updatedBy": "e7b13ff3-3f32-4892-934e-0a04dee661a8",
+    "updatedOn": "2024-04-30T08:22:49.342197+00:00"
+  }
+]
+PS C:\Users\strukt\Downloads\chmrts\chmrts-cheatsheet\labs> az role definition list -n viewo-only-role
+[
+  {
+    "assignableScopes": [
+      "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed"
+    ],
+    "createdBy": "e7b13ff3-3f32-4892-934e-0a04dee661a8",
+    "createdOn": "2024-04-30T08:22:30.422688+00:00",
+    "description": "This is a custom view only role",
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/providers/Microsoft.Authorization/roleDefinitions/c432dbfc-cd1f-2c33-9751-f1627ac8d73d",
+    "name": "c432dbfc-cd1f-2c33-9751-f1627ac8d73d",
+    "permissions": [
+      {
+        "actions": [
+          "*/read"
+        ],
+        "condition": null,
+        "conditionVersion": null,
+        "dataActions": [],
+        "notActions": [
+          "Microsoft.Automation/automationAccounts/runbooks/read"
+        ],
+        "notDataActions": [
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+        ]
+      }
+    ],
+    "roleName": "viewo-only-role",
+    "roleType": "CustomRole",
+    "type": "Microsoft.Authorization/roleDefinitions",
+    "updatedBy": "e7b13ff3-3f32-4892-934e-0a04dee661a8",
+    "updatedOn": "2024-04-30T08:22:30.422688+00:00"
+  }
+]
+
 PS C:\Users\strukt> az resource list
 [
   {
@@ -228,5 +286,637 @@ PS C:\Users\strukt> az resource list
     },
     "tags": {},
     "type": "Microsoft.Compute/disks"
+  }
+]
+
+PS C:\Users\strukt\Downloads\chmrts\chmrts-cheatsheet\labs> az vm list
+[
+  {
+    "additionalCapabilities": null,
+    "applicationProfile": null,
+    "availabilitySet": null,
+    "billingProfile": null,
+    "capacityReservation": null,
+    "diagnosticsProfile": {
+      "bootDiagnostics": {
+        "enabled": false,
+        "storageUri": null
+      }
+    },
+    "etag": "\"1\"",
+    "evictionPolicy": null,
+    "extendedLocation": null,
+    "extensionsTimeBudget": "PT1H30M",
+    "hardwareProfile": {
+      "vmSize": "Standard_B2s",
+      "vmSizeProperties": null
+    },
+    "host": null,
+    "hostGroup": null,
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/ENGINEERING-RG/providers/Microsoft.Compute/virtualMachines/eng-dev-vm",
+    "identity": {
+      "principalId": "81cf4383-9028-4c55-a25c-28261f0dcde1",
+      "tenantId": "68b40a4c-50f1-48f3-b7cb-916dd82418a7",
+      "type": "SystemAssigned",
+      "userAssignedIdentities": null
+    },
+    "instanceView": null,
+    "licenseType": null,
+    "location": "eastus",
+    "managedBy": null,
+    "name": "eng-dev-vm",
+    "networkProfile": {
+      "networkApiVersion": null,
+      "networkInterfaceConfigurations": null,
+      "networkInterfaces": [
+        {
+          "deleteOption": null,
+          "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/Engineering-RG/providers/Microsoft.Network/networkInterfaces/linux-vm-nic",
+          "primary": true,
+          "resourceGroup": "Engineering-RG"
+        }
+      ]
+    },
+    "osProfile": {
+      "adminPassword": null,
+      "adminUsername": "devuser",
+      "allowExtensionOperations": true,
+      "computerName": "eng-dev-vm",
+      "customData": null,
+      "linuxConfiguration": {
+        "disablePasswordAuthentication": true,
+        "enableVmAgentPlatformUpdates": false,
+        "patchSettings": {
+          "assessmentMode": "ImageDefault",
+          "automaticByPlatformSettings": null,
+          "patchMode": "ImageDefault"
+        },
+        "provisionVmAgent": true,
+        "ssh": {
+          "publicKeys": [
+            {
+              "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCxAgQvguaPkbLJaN6TUvfqi1xh34sk3WI9JSXAPQq4dbeeUVVjfzJq3oJVd2/dS7jDqmhgN+2mmUcdL1EspHvkwuqBzWLBS3rEi9hNVsYVB5Yzx7aFi9W8Qb+IvsItENrl2HBfcFojTflH6RNUtI3WHl76/rRwNnZrA4aWk5JYpWTUrEnjygH9BTB97vhZ3bRThmllVShLsheLTw4wMDCxoe9V2XuEsK5FTyWLu68QilEUAL7WarAy/YYfuShnDvmOnh9SJeZqqCJ4TprUWuoItBCs1YQyc8FUd+OP/MQyUMMoe320KFJI4OiYWBbQPPLdbU1Az7izV5tWx4IZDJx36HS8LkqpyAUgp/fLSpiYgSy70Zj691xUKfuKCpg/lQS20xCQ4YRqhSWlwO3rQVFPwCJ/mgAilqy9vCqJ1PhyBAjABzWggjsdsFxiUy3m0tJ17YCR+MleSUPhyMC/tB6ixhAoOux1y1QG24u6RgTA8YIGNVtM6cjQZxJsBwBt3BnDFj93XZWHbqHcC7vc55kWgKN7u+sD6l9Z21BE/5RUII7U862rcyGOdo/Pd9BYwxUKP+olfB44IN2pKgd5o2zvIz345zJKRXw8ktoawJIYS08rGr79BF1+Ttwo84DbPZwtlBNrImFxc2+Ak7FF63OV5dh9Ke1fAYlp8CUxYCcTWQ== hacker@Hacker-PC\n",
+              "path": "/home/devuser/.ssh/authorized_keys"
+            }
+          ]
+        }
+      },
+      "requireGuestProvisionSignal": true,
+      "secrets": [],
+      "windowsConfiguration": null
+    },
+    "plan": null,
+    "platformFaultDomain": null,
+    "priority": "Regular",
+    "provisioningState": "Succeeded",
+    "proximityPlacementGroup": null,
+    "resourceGroup": "ENGINEERING-RG",
+    "resources": null,
+    "scheduledEventsPolicy": null,
+    "scheduledEventsProfile": null,
+    "securityProfile": null,
+    "storageProfile": {
+      "dataDisks": [],
+      "diskControllerType": null,
+      "imageReference": {
+        "communityGalleryImageId": null,
+        "exactVersion": "18.04.202401161",
+        "id": null,
+        "offer": "UbuntuServer",
+        "publisher": "Canonical",
+        "sharedGalleryImageId": null,
+        "sku": "18.04-LTS",
+        "version": "latest"
+      },
+      "osDisk": {
+        "caching": "ReadWrite",
+        "createOption": "FromImage",
+        "deleteOption": "Detach",
+        "diffDiskSettings": null,
+        "diskSizeGb": 30,
+        "encryptionSettings": null,
+        "image": null,
+        "managedDisk": {
+          "diskEncryptionSet": null,
+          "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/Engineering-RG/providers/Microsoft.Compute/disks/eng-dev-vm_OsDisk_1_5b63ff33d401460585a28f516dce7111",
+          "resourceGroup": "Engineering-RG",
+          "securityProfile": null,
+          "storageAccountType": "Standard_LRS"
+        },
+        "name": "eng-dev-vm_OsDisk_1_5b63ff33d401460585a28f516dce7111",
+        "osType": "Linux",
+        "vhd": null,
+        "writeAcceleratorEnabled": false
+      }
+    },
+    "tags": {},
+    "timeCreated": "2024-04-30T08:23:55.642613+00:00",
+    "type": "Microsoft.Compute/virtualMachines",
+    "userData": null,
+    "virtualMachineScaleSet": null,
+    "vmId": "ecd232e3-868e-4311-b453-eb2011a0c56b",
+    "zones": null
+  }
+]
+
+PS C:\Users\strukt\Downloads\chmrts\chmrts-cheatsheet\labs> az vm list-ip-addresses --resource-group Engineering-RG --name eng-dev-vm
+  [{
+    "virtualMachine": {
+      "name": "eng-dev-vm",
+      "network": {
+        "privateIpAddresses": [
+          "10.30.1.4"
+        ],
+        "publicIpAddresses": [
+          {
+            "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/Engineering-RG/providers/Microsoft.Network/publicIPAddresses/eng-dev-vm-public-ip",
+            "ipAddress": "40.88.30.178",
+            "ipAllocationMethod": "Static",
+            "name": "eng-dev-vm-public-ip",
+            "resourceGroup": "Engineering-RG",
+            "zone": null
+          }
+        ]
+      },
+      "resourceGroup": "Engineering-RG"
+    }
+  }
+]
+
+PS C:\Users\strukt\Downloads\chmrts\chmrts-cheatsheet\labs> az role assignment list --all --assignee 18a37ae7-2a71-42fc-8928-7378c75dbf98 --include-inherited --include-groups
+[
+  {
+    "condition": null,
+    "conditionVersion": null,
+    "createdBy": "e7b13ff3-3f32-4892-934e-0a04dee661a8",
+    "createdOn": "2024-04-30T08:22:49.342197+00:00",
+    "delegatedManagedIdentityResourceId": null,
+    "description": "",
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/providers/Microsoft.Authorization/roleAssignments/4c941493-1f45-8b88-cc8b-0859c6e66bf8",
+    "name": "4c941493-1f45-8b88-cc8b-0859c6e66bf8",
+    "principalId": "84c2110d-9efc-415f-9b88-6ffbc6b8bafa",
+    "principalName": "18a37ae7-2a71-42fc-8928-7378c75dbf98",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/providers/Microsoft.Authorization/roleDefinitions/c432dbfc-cd1f-2c33-9751-f1627ac8d73d",
+    "roleDefinitionName": "viewo-only-role",
+    "scope": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed",
+    "type": "Microsoft.Authorization/roleAssignments",
+    "updatedBy": "e7b13ff3-3f32-4892-934e-0a04dee661a8",
+    "updatedOn": "2024-04-30T08:22:49.342197+00:00"
+  },
+  {
+    "condition": null,
+    "conditionVersion": null,
+    "createdBy": "e7b13ff3-3f32-4892-934e-0a04dee661a8",
+    "createdOn": "2024-04-30T08:25:35.662691+00:00",
+    "delegatedManagedIdentityResourceId": null,
+    "description": "",
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/Engineering-RG/providers/Microsoft.KeyVault/vaults/meta-tech-dev-vault/providers/Microsoft.Authorization/roleAssignments/eecd8647-721b-7c61-3780-4fd123f0dc9b",
+    "name": "eecd8647-721b-7c61-3780-4fd123f0dc9b",
+    "principalId": "6b21a8cc-ea93-4a36-93da-892e43164f65",
+    "principalName": "Vault Group",
+    "principalType": "Group",
+    "resourceGroup": "Engineering-RG",
+    "roleDefinitionId": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/providers/Microsoft.Authorization/roleDefinitions/21090545-7ca7-4776-b22c-e363652d74d2",
+    "roleDefinitionName": "Key Vault Reader",
+    "scope": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/Engineering-RG/providers/Microsoft.KeyVault/vaults/meta-tech-dev-vault",
+    "type": "Microsoft.Authorization/roleAssignments",
+    "updatedBy": "e7b13ff3-3f32-4892-934e-0a04dee661a8",
+    "updatedOn": "2024-04-30T08:25:35.662691+00:00"
+  },
+  {
+    "condition": null,
+    "conditionVersion": null,
+    "createdBy": "e7b13ff3-3f32-4892-934e-0a04dee661a8",
+    "createdOn": "2024-04-30T08:25:35.814056+00:00",
+    "delegatedManagedIdentityResourceId": null,
+    "description": "",
+    "id": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/Engineering-RG/providers/Microsoft.KeyVault/vaults/meta-tech-dev-vault/providers/Microsoft.Authorization/roleAssignments/2e6a291c-5257-0edb-f3a6-2792f6d49dac",
+    "name": "2e6a291c-5257-0edb-f3a6-2792f6d49dac",
+    "principalId": "6b21a8cc-ea93-4a36-93da-892e43164f65",
+    "principalName": "Vault Group",
+    "principalType": "Group",
+    "resourceGroup": "Engineering-RG",
+    "roleDefinitionId": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/providers/Microsoft.Authorization/roleDefinitions/4633458b-17de-408a-b874-0445c86b69e6",
+    "roleDefinitionName": "Key Vault Secrets User",
+    "scope": "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourceGroups/Engineering-RG/providers/Microsoft.KeyVault/vaults/meta-tech-dev-vault",
+    "type": "Microsoft.Authorization/roleAssignments",
+    "updatedBy": "e7b13ff3-3f32-4892-934e-0a04dee661a8",
+    "updatedOn": "2024-04-30T08:25:35.814056+00:00"
+  }
+]
+
+PS C:\Users\strukt\Downloads\chmrts\chmrts-cheatsheet\labs> az ad sp list --filter "appId eq '18a37ae7-2a71-42fc-8928-7378c75dbf98'"
+[
+  {
+    "accountEnabled": true,
+    "addIns": [],
+    "alternativeNames": [],
+    "appDescription": null,
+    "appDisplayName": "developement-app",
+    "appId": "18a37ae7-2a71-42fc-8928-7378c75dbf98",
+    "appOwnerOrganizationId": "68b40a4c-50f1-48f3-b7cb-916dd82418a7",
+    "appRoleAssignmentRequired": false,
+    "appRoles": [],
+    "applicationTemplateId": null,
+    "createdDateTime": "2024-04-30T08:22:31Z",
+    "deletedDateTime": null,
+    "description": null,
+    "disabledByMicrosoftStatus": null,
+    "displayName": "developement-app",
+    "homepage": null,
+    "id": "84c2110d-9efc-415f-9b88-6ffbc6b8bafa",
+    "info": {
+      "logoUrl": null,
+      "marketingUrl": null,
+      "privacyStatementUrl": null,
+      "supportUrl": null,
+      "termsOfServiceUrl": null
+    },
+    "keyCredentials": [],
+    "loginUrl": null,
+    "logoutUrl": null,
+    "notes": null,
+    "notificationEmailAddresses": [],
+    "oauth2PermissionScopes": [],
+    "passwordCredentials": [
+      {
+        "customKeyIdentifier": null,
+        "displayName": null,
+        "endDateTime": "2026-04-30T08:22:43.2638357Z",
+        "hint": "0ua",
+        "keyId": "cfe6d474-ab3f-4931-b0c5-a6eb93a9f4da",
+        "secretText": null,
+        "startDateTime": "2024-04-30T08:22:43.2638357Z"
+      }
+    ],
+    "preferredSingleSignOnMode": null,
+    "preferredTokenSigningKeyThumbprint": null,
+    "replyUrls": [],
+    "resourceSpecificApplicationPermissions": [],
+    "samlSingleSignOnSettings": {
+      "relayState": null
+    },
+    "servicePrincipalNames": [
+      "18a37ae7-2a71-42fc-8928-7378c75dbf98"
+    ],
+    "servicePrincipalType": "Application",
+    "signInAudience": "AzureADMyOrg",
+    "tags": [],
+    "tokenEncryptionKeyId": null,
+    "verifiedPublisher": {
+      "addedDateTime": null,
+      "displayName": null,
+      "verifiedPublisherId": null
+    }
+  }
+]
+
+SSH app ID 932ae693-aafd-4c2e-862c-48cff48bbfea
+
+PS C:\Users\strukt> az ad sp list --filter "appId eq '932ae693-aafd-4c2e-862c-48cff48bbfea'"
+[
+  {
+    "accountEnabled": true,
+    "addIns": [],
+    "alternativeNames": [
+      "/subscriptions/484f280d-a210-4272-b85d-cdd1a66572ed/resourcegroups/Engineering-RG/providers/Microsoft.Compute/virtualMachines/eng-dev-vm",
+      "isExplicit=False"
+    ],
+    "appDescription": null,
+    "appDisplayName": null,
+    "appId": "932ae693-aafd-4c2e-862c-48cff48bbfea",
+    "appOwnerOrganizationId": null,
+    "appRoleAssignmentRequired": false,
+    "appRoles": [],
+    "applicationTemplateId": null,
+    "createdDateTime": "2024-04-30T08:23:55Z",
+    "deletedDateTime": null,
+    "description": null,
+    "disabledByMicrosoftStatus": null,
+    "displayName": "eng-dev-vm",
+    "homepage": null,
+    "id": "81cf4383-9028-4c55-a25c-28261f0dcde1",
+    "info": null,
+    "keyCredentials": [],
+    "loginUrl": null,
+    "logoutUrl": null,
+    "notes": null,
+    "notificationEmailAddresses": [],
+    "oauth2PermissionScopes": [],
+    "passwordCredentials": [],
+    "preferredSingleSignOnMode": null,
+    "preferredTokenSigningKeyThumbprint": null,
+    "replyUrls": [],
+    "resourceSpecificApplicationPermissions": [],
+    "samlSingleSignOnSettings": null,
+    "servicePrincipalNames": [
+      "https://identity.azure.net/OGIf7RhVv/EydEBxhVnVU1b0RWvSadI2f+1DxnYT+E0=",
+      "932ae693-aafd-4c2e-862c-48cff48bbfea"
+    ],
+    "servicePrincipalType": "ManagedIdentity",
+    "signInAudience": null,
+    "tags": [],
+    "tokenEncryptionKeyId": null,
+    "verifiedPublisher": {
+      "addedDateTime": null,
+      "displayName": null,
+      "verifiedPublisherId": null
+    }
+  }
+]
+
+PS C:\Users\strukt> az vm list --subscription 2ee836d0-7c16-4037-a974-3a19691573d4
+[
+  {
+    "additionalCapabilities": null,
+    "applicationProfile": null,
+    "availabilitySet": null,
+    "billingProfile": null,
+    "capacityReservation": null,
+    "diagnosticsProfile": {
+      "bootDiagnostics": {
+        "enabled": false,
+        "storageUri": null
+      }
+    },
+    "etag": "\"2\"",
+    "evictionPolicy": null,
+    "extendedLocation": null,
+    "extensionsTimeBudget": "PT1H30M",
+    "hardwareProfile": {
+      "vmSize": "Standard_B2s",
+      "vmSizeProperties": null
+    },
+    "host": null,
+    "hostGroup": null,
+    "id": "/subscriptions/2ee836d0-7c16-4037-a974-3a19691573d4/resourceGroups/IT-RG/providers/Microsoft.Compute/virtualMachines/it-gts-vm",
+    "identity": {
+      "principalId": null,
+      "tenantId": null,
+      "type": "UserAssigned",
+      "userAssignedIdentities": {
+        "/subscriptions/2ee836d0-7c16-4037-a974-3a19691573d4/resourceGroups/IT-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/GST-VM-Identity": {
+          "clientId": "b5649625-b709-44e8-8735-ce6ea02d44be",
+          "principalId": "ee2381f1-350c-43e0-8183-26079fd532d5"
+        }
+      }
+    },
+    "instanceView": null,
+    "licenseType": null,
+    "location": "eastus",
+    "managedBy": null,
+    "name": "it-gts-vm",
+    "networkProfile": {
+      "networkApiVersion": null,
+      "networkInterfaceConfigurations": null,
+      "networkInterfaces": [
+        {
+          "deleteOption": null,
+          "id": "/subscriptions/2ee836d0-7c16-4037-a974-3a19691573d4/resourceGroups/IT-RG/providers/Microsoft.Network/networkInterfaces/gts-vm-nic",
+          "primary": true,
+          "resourceGroup": "IT-RG"
+        }
+      ]
+    },
+    "osProfile": {
+      "adminPassword": null,
+      "adminUsername": "ituser",
+      "allowExtensionOperations": true,
+      "computerName": "it-gts-vm",
+      "customData": null,
+      "linuxConfiguration": {
+        "disablePasswordAuthentication": true,
+        "enableVmAgentPlatformUpdates": false,
+        "patchSettings": {
+          "assessmentMode": "ImageDefault",
+          "automaticByPlatformSettings": null,
+          "patchMode": "ImageDefault"
+        },
+        "provisionVmAgent": true,
+        "ssh": {
+          "publicKeys": [
+            {
+              "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC1saLfseu6NX6uqDmqecUG9IFvV4eNkTuZVY94wPD9tbcAOTBt4IpyIS30vhNitENa7EqBLyNz4gJR5d51VUSNzWk5LheLAVJfl9cNEgjRxBWBUWTLKcrCB3tNNzsPn7OKL9PNknbFrMmwpabQwUtO/ce5B1sfEsHXIoD6tk87pURLR7C2DSkDJm7WP5mrWMn3+ZPHj6cyCy/gEHqSHvXdwWtTp1t+VALDZqjn63lnkL4UrmmydbnYK4zJ/+c8lHn2/Ln8YnFA/fiyA0WLQ5cT4+iBkgPYM6Yo3IZNZFQqIJtGT0LOTuAcLG4KKQR83uRPHa+lzGddbIrPiqpCqpY/aSCe1qNCbjlQMXjzdjLRi9vk0DiGKTAR8p7REBu4blnFy5lmzCsG/VApWM+fHqX/ch12e3nOOLUTNIh+DMqkS1rLSxqrAxWq4z9/6ThpBIA6BuLv9DoXJX8/kwtpQFKjeam98bBZCqG2ifrVvHaJNGuGQGAVWd9DhgTNgCZV9vgqQewqUcq8iQ0yUqM7d2ZSIOuDUCwipNZ7UI1Z+0UQFJxD5n0/fOH95ZL8tv2TgMOhHNEH6O4iqX13RmxFMHEUDG+PcTX4oXT4OAEUFzE76Ca4qEuBpuIn5OghycnPs2YD+hf7cKjidbBExPZcdBk+0esk+vOO5Ku95BAWTklCJQ== hacker@Hacker-PC\n",
+              "path": "/home/ituser/.ssh/authorized_keys"
+            }
+          ]
+        }
+      },
+      "requireGuestProvisionSignal": true,
+      "secrets": [],
+      "windowsConfiguration": null
+    },
+    "plan": null,
+    "platformFaultDomain": null,
+    "priority": "Regular",
+    "provisioningState": "Succeeded",
+    "proximityPlacementGroup": null,
+    "resourceGroup": "IT-RG",
+    "resources": null,
+    "scheduledEventsPolicy": null,
+    "scheduledEventsProfile": null,
+    "securityProfile": null,
+    "storageProfile": {
+      "dataDisks": [],
+      "diskControllerType": null,
+      "imageReference": {
+        "communityGalleryImageId": null,
+        "exactVersion": "18.04.202401161",
+        "id": null,
+        "offer": "UbuntuServer",
+        "publisher": "Canonical",
+        "sharedGalleryImageId": null,
+        "sku": "18.04-LTS",
+        "version": "latest"
+      },
+      "osDisk": {
+        "caching": "ReadWrite",
+        "createOption": "FromImage",
+        "deleteOption": "Detach",
+        "diffDiskSettings": null,
+        "diskSizeGb": 30,
+        "encryptionSettings": null,
+        "image": null,
+        "managedDisk": {
+          "diskEncryptionSet": null,
+          "id": "/subscriptions/2ee836d0-7c16-4037-a974-3a19691573d4/resourceGroups/IT-RG/providers/Microsoft.Compute/disks/it-gts-vm_OsDisk_1_2b32e09a98d6431791f3b3d05bb179d6",
+          "resourceGroup": "IT-RG",
+          "securityProfile": null,
+          "storageAccountType": "Standard_LRS"
+        },
+        "name": "it-gts-vm_OsDisk_1_2b32e09a98d6431791f3b3d05bb179d6",
+        "osType": "Linux",
+        "vhd": null,
+        "writeAcceleratorEnabled": false
+      }
+    },
+    "tags": {},
+    "timeCreated": "2024-04-30T08:23:59.306571+00:00",
+    "type": "Microsoft.Compute/virtualMachines",
+    "userData": null,
+    "virtualMachineScaleSet": null,
+    "vmId": "1e8c96b9-b998-42b9-9904-728f0cb2d6a4",
+    "zones": null
+  },
+  {
+    "additionalCapabilities": null,
+    "applicationProfile": null,
+    "availabilitySet": null,
+    "billingProfile": null,
+    "capacityReservation": null,
+    "diagnosticsProfile": {
+      "bootDiagnostics": {
+        "enabled": false,
+        "storageUri": null
+      }
+    },
+    "etag": "\"2\"",
+    "evictionPolicy": null,
+    "extendedLocation": null,
+    "extensionsTimeBudget": "PT1H30M",
+    "hardwareProfile": {
+      "vmSize": "Standard_B2s",
+      "vmSizeProperties": null
+    },
+    "host": null,
+    "hostGroup": null,
+    "id": "/subscriptions/2ee836d0-7c16-4037-a974-3a19691573d4/resourceGroups/IT-RG/providers/Microsoft.Compute/virtualMachines/IT-Mgmt-VM",
+    "identity": null,
+    "instanceView": null,
+    "licenseType": null,
+    "location": "eastus",
+    "managedBy": null,
+    "name": "IT-Mgmt-VM",
+    "networkProfile": {
+      "networkApiVersion": null,
+      "networkInterfaceConfigurations": null,
+      "networkInterfaces": [
+        {
+          "deleteOption": null,
+          "id": "/subscriptions/2ee836d0-7c16-4037-a974-3a19691573d4/resourceGroups/IT-RG/providers/Microsoft.Network/networkInterfaces/mgmt-vm-nic",
+          "primary": true,
+          "resourceGroup": "IT-RG"
+        }
+      ]
+    },
+    "osProfile": {
+      "adminPassword": null,
+      "adminUsername": "adminuser",
+      "allowExtensionOperations": true,
+      "computerName": "IT-Mgmt-VM",
+      "customData": null,
+      "linuxConfiguration": null,
+      "requireGuestProvisionSignal": true,
+      "secrets": [],
+      "windowsConfiguration": {
+        "additionalUnattendContent": null,
+        "enableAutomaticUpdates": true,
+        "enableVmAgentPlatformUpdates": false,
+        "patchSettings": {
+          "assessmentMode": "ImageDefault",
+          "automaticByPlatformSettings": null,
+          "enableHotpatching": false,
+          "patchMode": "AutomaticByOS"
+        },
+        "provisionVmAgent": true,
+        "timeZone": null,
+        "winRm": {
+          "listeners": []
+        }
+      }
+    },
+    "plan": null,
+    "platformFaultDomain": null,
+    "priority": "Regular",
+    "provisioningState": "Succeeded",
+    "proximityPlacementGroup": null,
+    "resourceGroup": "IT-RG",
+    "resources": null,
+    "scheduledEventsPolicy": null,
+    "scheduledEventsProfile": null,
+    "securityProfile": null,
+    "storageProfile": {
+      "dataDisks": [],
+      "diskControllerType": null,
+      "imageReference": {
+        "communityGalleryImageId": null,
+        "exactVersion": "17763.5696.240406",
+        "id": null,
+        "offer": "WindowsServer",
+        "publisher": "MicrosoftWindowsServer",
+        "sharedGalleryImageId": null,
+        "sku": "2019-Datacenter",
+        "version": "latest"
+      },
+      "osDisk": {
+        "caching": "ReadWrite",
+        "createOption": "FromImage",
+        "deleteOption": "Detach",
+        "diffDiskSettings": null,
+        "diskSizeGb": 127,
+        "encryptionSettings": null,
+        "image": null,
+        "managedDisk": {
+          "diskEncryptionSet": null,
+          "id": "/subscriptions/2ee836d0-7c16-4037-a974-3a19691573d4/resourceGroups/IT-RG/providers/Microsoft.Compute/disks/IT-Mgmt-VM_disk1_f4fc8fb297f84e13bbbecb9f07a5b7cd",
+          "resourceGroup": "IT-RG",
+          "securityProfile": null,
+          "storageAccountType": "Standard_LRS"
+        },
+        "name": "IT-Mgmt-VM_disk1_f4fc8fb297f84e13bbbecb9f07a5b7cd",
+        "osType": "Windows",
+        "vhd": null,
+        "writeAcceleratorEnabled": false
+      }
+    },
+    "tags": {},
+    "timeCreated": "2024-04-30T08:24:06.244000+00:00",
+    "type": "Microsoft.Compute/virtualMachines",
+    "userData": null,
+    "virtualMachineScaleSet": null,
+    "vmId": "3bd82e8f-bf4d-4bbb-b687-94cbef4eac00",
+    "zones": null
+  }
+]
+
+PS C:\Users\strukt> az vm list-ip-addresses --resource-group IT-RG --name IT-Mgmt-VM --subscription 2ee836d0-7c16-4037-a974-3a19691573d4
+[
+  {
+    "virtualMachine": {
+      "name": "IT-Mgmt-VM",
+      "network": {
+        "privateIpAddresses": [
+          "10.30.2.132"
+        ],
+        "publicIpAddresses": [
+          {
+            "id": "/subscriptions/2ee836d0-7c16-4037-a974-3a19691573d4/resourceGroups/IT-RG/providers/Microsoft.Network/publicIPAddresses/it-mgmt-vm-public-ip",
+            "ipAddress": "40.114.14.236",
+            "ipAllocationMethod": "Static",
+            "name": "it-mgmt-vm-public-ip",
+            "resourceGroup": "IT-RG",
+            "zone": null
+          }
+        ]
+      },
+      "resourceGroup": "IT-RG"
+    }
+  }
+]
+
+PS C:\Users\strukt> az vm list-ip-addresses --resource-group IT-RG --name it-gts-vm --subscription 2ee836d0-7c16-4037-a974-3a19691573d4
+[
+  {
+    "virtualMachine": {
+      "name": "it-gts-vm",
+      "network": {
+        "privateIpAddresses": [
+          "10.30.2.4"
+        ],
+        "publicIpAddresses": []
+      },
+      "resourceGroup": "IT-RG"
+    }
   }
 ]
