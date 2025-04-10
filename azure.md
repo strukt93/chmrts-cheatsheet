@@ -150,6 +150,10 @@ az group list
 ```
 az ad --help
 ```
+- Enumrate all of an SP's role assignments
+```
+az role assignment list --all --assignee OBJECTID --include-inherited --include-groups
+```
 
 ### Enumeration with MicroBurst
 - Enumerate public Azure blobs (PS)
