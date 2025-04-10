@@ -25,6 +25,10 @@ az logout
 ```
 Connect-AzureAD
 ```
+- Switch between tenant subscriptions
+```
+Set-AzContext
+```
 - Get current Azure AD account (PS)
 ```
 $res=Get-AzureADCurrentSessionInfo
@@ -141,6 +145,10 @@ az automation account list
 - List resource groups
 ```
 az group list
+```
+- AD enumeration subcommands
+```
+az ad --help
 ```
 
 ### Enumeration with MicroBurst
