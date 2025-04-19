@@ -245,3 +245,5 @@ az role assignment list --assignee OBJECTID --all
 
 ## Tools and resources
 - https://github.com/mgeeky/AzureRT/tree/master
+- [Microsoft Graph CLI reference](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.authentication/connect-mggraph?view=graph-powershell-1.0)
+- https://github.com/SlyJose/Hacking-Notes/blob/8b70388e4af7d8ed9b745639d33c1a6d9aa1f990/Hacking-Vault/MCRTA%20-%20Azure%20Lab%20Resolution.md
